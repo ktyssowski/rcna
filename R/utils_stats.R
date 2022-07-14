@@ -4,7 +4,7 @@ conditional_permutation <- function(B, Y, num) {
             data.frame(idx, val=sample(Y[idx]))
         }) %>% dplyr::bind_rows() %>% 
             dplyr::arrange(i) %>% 
-            with(val)    
+            with(sample(Y[i]))    
     }) %>% 
         purrr::reduce(Matrix::cbind2)
 }
