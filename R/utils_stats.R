@@ -3,7 +3,7 @@ conditional_permutation <- function(B, Y, num) {
         split(seq_len(length(Y)), B) %>% purrr::map(function(idx) {
             data.frame(idx, val=sample(Y[idx]))
         }) %>% dplyr::bind_rows() %>% 
-            dplyr::arrange(idx) %>% 
+            dplyr::arrange(i) %>% 
             with(val)    
     }) %>% 
         purrr::reduce(Matrix::cbind2)
